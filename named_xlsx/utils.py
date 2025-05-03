@@ -13,10 +13,6 @@ from openpyxl.worksheet.cell_range import CellRange
 from openpyxl.utils.cell import cols_from_range, rows_from_range, get_column_letter
 
 
-Numeric = int | float | np.ndarray | pd.Series
-Pathlike = str | Path
-
-
 @dataclass
 class Table:
     name: str
@@ -304,3 +300,8 @@ def nanaverage(arr: np.ndarray, weights: np.ndarray | None = None) -> float:
         weights = np.full_like(arr, fill_value=1)
     indices = ~np.isnan(arr) & ~np.isnan(weights)
     return np.average(arr[indices], weights=weights[indices]).item()
+
+
+Numeric = int | float | np.ndarray | pd.Series
+Pathlike = str | Path
+Addresslike = str | XLSXAddress

@@ -10,9 +10,8 @@ import xlwings
 
 def refresh_path(path: Path):
     modified_time_old = path.stat().st_mtime
-    wb = xlwings.Book(path)
-    wb.save()
-    wb.close()
+    with xlwings.Book(path) as wb:
+        wb.save()
     modified_time_new = path.stat().st_mtime
     if modified_time_old >= modified_time_new:
         raise ValueError("File was not updated.")
