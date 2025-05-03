@@ -47,6 +47,7 @@ doc = ["sphinx"]
 named_xlsx-refresh = "named_xlsx.refresh:refresher"
 named_xlsx-save = "named_xlsx.cli:save_cli"
 named_xlsx-load = "named_xlsx.cli:load_cli"
+named_xlsx-spec = "named_xlsx.cli:specifications_cli"
 
 [tool.black]
 line-length = 88

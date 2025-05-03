@@ -5,7 +5,7 @@ import shutil
 import fire
 import toml
 
-from named_xlsx.engines import OpenPYXL
+from named_xlsx.engines import OpenPYXL, MaybeStr
 
 
 def load(p_toml: Path, p_xlsx: Path, p_out: Path) -> None:
@@ -22,13 +22,33 @@ def load(p_toml: Path, p_xlsx: Path, p_out: Path) -> None:
 
 
 def save(
-    p_ini: Path, p_out: Path | None = None, filter_prefix: str | None = None
+    p_ini: Path, p_out: Path | None = None, filter_prefix: MaybeStr = None
 ) -> None:
-    txt = OpenPYXL.from_file(p_ini).export(filter_prefix=filter_prefix)
+    with closing(OpenPYXL.from_file(p_ini)) as m:
+        txt = m.export(filter_prefix=filter_prefix)
     if p_out is None:
         print(txt)
     else:
         p_out.write_text(txt)
+
+
+def specifications(
+    p_xlsx: Path, p_out: Path | None = None, filter_prefix: MaybeStr = None
+) -> None:
+    with closing(OpenPYXL.from_file(p_xlsx)) as m:
+        df = (
+            m.specifications(filter_prefix=filter_prefix)
+            .sort_values(by=["sheet", "coord", "name"])
+            .drop("addr", axis="columns")
+        )
+    if p_out is None:
+        print(df)
+    else:
+        df.to_csv(p_out, index=False)
+
+
+def specifications_cli():
+    fire.Fire(specifications)
 
 
 def load_cli():

@@ -10,6 +10,8 @@ import openpyxl as xl
 
 from named_xlsx.utils import (
     Addresslike,
+    MaybeStr,
+    MaybePathlike,
     Pathlike,
     XLSXAddress,
     get_tables,
@@ -23,7 +25,7 @@ __all__ = ["ENGINES", "OpenPYXL"]
 
 
 class AbstractEngine:
-    def __init__(self, wb, path: Pathlike | None = None):
+    def __init__(self, wb, path: MaybePathlike = None):
         self.wb = wb
         self.path = path
 
@@ -90,7 +92,7 @@ class AbstractEngine:
             self.write(cell_addr, cell_value)
         return self
 
-    def save(self, f: Pathlike | None = None):
+    def save(self, f: MaybePathlike = None):
         if f is None:
             if self.path is None:
                 raise ValueError(f"Need a file path. {f=} and {self.path=}")
@@ -115,13 +117,13 @@ class AbstractEngine:
     def __repr__(self):
         return f"{self.__class__.__name__}({self.path})"
 
-    def names_as_dict(self, filter_prefix: str | None = None):
+    def names_as_dict(self, filter_prefix: MaybeStr = None):
         out = {name: self.read_via_name(name) for name in self.names}
         if filter_prefix is None:
             return out
         return {k: v for k, v in out.items() if k.startswith(filter_prefix)}
 
-    def specifications(self, filter_prefix: str | None = None) -> pd.DataFrame:
+    def specifications(self, filter_prefix: MaybeStr = None) -> pd.DataFrame:
         names = self.names_as_dict(filter_prefix=filter_prefix)
         addrs = {name: self.name_address(name) for name in names}
         records = [
@@ -130,7 +132,7 @@ class AbstractEngine:
         ]
         return pd.DataFrame.from_records(records)
 
-    def export(self, filter_prefix: str | None = None) -> str:
+    def export(self, filter_prefix: MaybeStr = None) -> str:
         df = self.specifications(filter_prefix=filter_prefix)
         parts = [
             {

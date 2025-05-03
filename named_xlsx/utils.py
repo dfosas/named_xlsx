@@ -12,6 +12,12 @@ from openpyxl.workbook.defined_name import DefinedName
 from openpyxl.worksheet.cell_range import CellRange
 from openpyxl.utils.cell import cols_from_range, rows_from_range, get_column_letter
 
+# Types: builtins-based
+Numeric = int | float | np.ndarray | pd.Series
+Pathlike = str | Path
+MaybeStr = str | None
+MaybePathlike = Pathlike | None
+
 
 @dataclass
 class Table:
@@ -239,7 +245,7 @@ def compare_sheets(
     path1,
     sheet1: str,
     path2,
-    sheet2: str | None = None,
+    sheet2: MaybeStr = None,
     start_row: int = 0,
     start_col: int = 0,
 ):
@@ -302,6 +308,5 @@ def nanaverage(arr: np.ndarray, weights: np.ndarray | None = None) -> float:
     return np.average(arr[indices], weights=weights[indices]).item()
 
 
-Numeric = int | float | np.ndarray | pd.Series
-Pathlike = str | Path
+# Type definitions - non-builtins
 Addresslike = str | XLSXAddress
