@@ -8,7 +8,13 @@ import numpy as np
 import pandas as pd
 import openpyxl as xl
 
-from named_xlsx.utils import Addresslike, Pathlike, XLSXAddress, get_tables, get_destinations
+from named_xlsx.utils import (
+    Addresslike,
+    Pathlike,
+    XLSXAddress,
+    get_tables,
+    get_destinations,
+)
 
 OptionalCFG = dict[str, Any] | None
 
@@ -232,7 +238,6 @@ with suppress(ImportError):
             ws = self.wb.sheets[addr_.sheet]
             ws.range(addr_.coord).value = value
             return self
-
 
         def _save(self, f):
             self.wb.save(path=f)

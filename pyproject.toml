@@ -59,14 +59,14 @@ allow_redefinition = true
 minversion = "8"
 addopts = "-ra --doctest-modules --cov --cov-append --cov-report xml"
 testpaths = [
-    "named-xlsx",
+    "named_xlsx",
     "tests",
 ]
 
 [tool.coverage.run]
 parallel = true
 source = [
-    "named-xlsx",
+    "named_xlsx",
     "tests",
 ]
 
