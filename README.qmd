@@ -1,0 +1,66 @@
+---
+editor:
+  markdown:
+    wrap: 88
+---
+
+# `named_xlsx`
+
+[![Code style: black](
+https://img.shields.io/badge/code%20style-black-000000.svg)](
+https://github.com/psf/black)
+
+## What is it?
+This project creates a toolbox to work with Excel files from Python. 
+It aims to help releasing Excel-based workbooks without macros
+by working with interfaces built on top of named cells.
+It helps read from and write to such cells and other convenient functions.
+In particular:
+* Implements an interface to work with named cells (workbook scope) in Excel:
+  * read and write;
+  * type conversion;
+  * individual cells, vectors, tables;
+  * with different backends in Python (`openpxyl`, `xlwings`).
+* Utility class to work with cell addresses and named tables (tables that know they are tables).
+* Functions and command line tools to:
+  * Read and save to text files named cells and their values.
+  * Load and save to Excel files configuration for named cells from text files.
+  * Refresh cached values in files.
+
+## Background
+Some of my work involves publishing Excel files for the use of others,
+typically under the constraints of no macros and 
+ensuring that all works as intended and without breaking changes.
+Over time, this has been easier to manage from Python.
+Given evergrowing needs to do different things around this, 
+it made sense working with a number of libraries in Python:
+some are faster than others to create file variants, 
+some are supported in any platform, 
+some require having Excel installed,
+sometimes there is a need to work with a feature that only library X supports, etc.
+Thus, this package covers all utilities in one place and attempts to have a
+consistent, flexible interface that allows swapping underlying libraries whenever possible
+(`openpyxl`, `xlwings`).
+
+# User guide
+
+## Command Line Interfaces
+
+Save list of named cells with their current values,
+optionally filtering names.
+
+```{python}
+!named_xlsx-save "examples/sample-1_base.xlsx" --filter_prefix="i."
+```
+
+```{python}
+!named_xlsx-load "examples/update.toml" "examples/sample-1_base.xlsx" "examples/sample-2_modified.xlsx"
+```
+
+```{python}
+!named_xlsx-refresh --root "examples/"
+```
+
+```{python}
+!named_xlsx-save "examples/sample-2_modified.xlsx"
+```

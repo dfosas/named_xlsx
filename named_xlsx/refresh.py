@@ -45,7 +45,6 @@ def refresher():
     parser.add_argument("--inplace", action="store_true")
     parser.add_argument("--parallel", action="store_true")
     args = parser.parse_args()
-    print(args)
 
     _paths = list(sorted(args.root.glob("*.xlsx")))
     with xlwings.App() as _:

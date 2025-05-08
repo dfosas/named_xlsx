@@ -24,7 +24,7 @@ def load(p_toml: Path, p_xlsx: Path, p_out: Path) -> None:
 def save(
     p_ini: Path, p_out: Path | None = None, filter_prefix: MaybeStr = None
 ) -> None:
-    with closing(OpenPYXL.from_file(p_ini)) as m:
+    with closing(OpenPYXL.from_file(p_ini, data_only=True)) as m:
         txt = m.export(filter_prefix=filter_prefix)
     if p_out is None:
         print(txt)
