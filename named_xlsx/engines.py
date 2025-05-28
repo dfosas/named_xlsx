@@ -118,10 +118,14 @@ class AbstractEngine:
         return f"{self.__class__.__name__}({self.path})"
 
     def names_as_dict(self, filter_prefix: MaybeStr = None):
-        out = {name: self.read_via_name(name) for name in self.names}
         if filter_prefix is None:
-            return out
-        return {k: v for k, v in out.items() if k.startswith(filter_prefix)}
+            filter_prefix = ""
+        out = {
+            name: self.read_via_name(name)
+            for name in self.names
+            if name.startswith(filter_prefix)
+        }
+        return out
 
     def specifications(self, filter_prefix: MaybeStr = None) -> pd.DataFrame:
         names = self.names_as_dict(filter_prefix=filter_prefix)
@@ -159,7 +163,10 @@ class OpenPYXL(AbstractEngine):
             raise ValueError(f"{name=} not in {available_names=}")
         dn = self.wb.defined_names[name]
         tables = get_tables(self.wb)
-        address, *_ = get_destinations(dn, tables=tables)
+        try:
+            address, *_ = get_destinations(dn, tables=tables)
+        except ValueError as e:
+            raise ValueError(f"Cannot retrieve address for {name=}") from e
         if len(_) != 0:
             raise ValueError(f"Multiple destinations not implemented: {dn=}")
         return XLSXAddress(f"{address[0]}!{address[1]}")

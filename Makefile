@@ -2,7 +2,7 @@
 
 SHELL := /bin/bash
 .DEFAULT_GOAL := help
-.PHONY: coverage help install lint push test tox
+.PHONY: coverage help install lint test update
 
 dir_package="named_xlsx"
 dir_tests="tests"

@@ -10,6 +10,13 @@ editor:
 https://img.shields.io/badge/code%20style-black-000000.svg)](
 https://github.com/psf/black)
 
+## TODO
+
+* [ ] Documentation with MkDocs? (just to try it).
+    * See sample tutorial [here](https://realpython.com/python-project-documentation-with-mkdocs/#add-module-docstrings).
+    * [Material theme](https://squidfunk.github.io/mkdocs-material/getting-started/).
+    * Would drop a qmd README for that (no quarto really).
+
 ## What is it?
 This project creates a toolbox to work with Excel files from Python. 
 It aims to help releasing Excel-based workbooks without macros
