@@ -2,6 +2,7 @@
 editor:
   markdown:
     wrap: 88
+jupyter: py312
 ---
 
 # `named_xlsx`
@@ -49,25 +50,36 @@ Thus, this package covers all utilities in one place and attempts to have a
 consistent, flexible interface that allows swapping underlying libraries whenever possible
 (`openpyxl`, `xlwings`).
 
+
 # User guide
-
 ## Command Line Interfaces
+Quick tour of options available, best read in order top to bottom
+to see how spreadsheets are modified.
 
-Save list of named cells with their current values,
+### Save
+Save configuration by listing named cells with their current values,
 optionally filtering names.
 
 ```{python}
 !named_xlsx-save "examples/sample-1_base.xlsx" --filter_prefix="i."
 ```
 
+### Load
+Load configuration onto target spreadsheet and save.
+
 ```{python}
 !named_xlsx-load "examples/update.toml" "examples/sample-1_base.xlsx" "examples/sample-2_modified.xlsx"
 ```
+
+### Refresh
+In supported platforms where Excel is available, open and save the file to refresh cached values
+(if the spreadsheet automatically computes values).
 
 ```{python}
 !named_xlsx-refresh --root "examples/"
 ```
 
+Display new state:
 ```{python}
 !named_xlsx-save "examples/sample-2_modified.xlsx"
 ```

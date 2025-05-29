@@ -1,3 +1,4 @@
+# Load
 
 
 # `named_xlsx`
@@ -7,6 +8,15 @@
 src="https://img.shields.io/badge/code%20style-black-000000.svg" /></a>
 <figcaption>Code style: black</figcaption>
 </figure>
+
+## TODO
+
+-   ☐ Documentation with MkDocs? (just to try it).
+    -   See sample tutorial
+        [here](https://realpython.com/python-project-documentation-with-mkdocs/#add-module-docstrings).
+    -   [Material
+        theme](https://squidfunk.github.io/mkdocs-material/getting-started/).
+    -   Would drop a qmd README for that (no quarto really).
 
 ## What is it?
 
@@ -41,8 +51,13 @@ underlying libraries whenever possible (`openpyxl`, `xlwings`).
 
 ## Command Line Interfaces
 
-Save list of named cells with their current values, optionally filtering
-names.
+Quick tour of options available, best read in order top to bottom to see
+how spreadsheets are modified.
+
+### Save
+
+Save configuration by listing named cells with their current values,
+optionally filtering names.
 
 ``` python
 !named_xlsx-save "examples/sample-1_base.xlsx" --filter_prefix="i."
@@ -56,13 +71,23 @@ names.
     "i.x" = 3
     "i.y" = 5
 
+Load configuration onto target spreadsheet and save.
+
 ``` python
 !named_xlsx-load "examples/update.toml" "examples/sample-1_base.xlsx" "examples/sample-2_modified.xlsx"
 ```
 
+### Refresh
+
+In supported platforms where Excel is available, open and save the file
+to refresh cached values (if the spreadsheet automatically computes
+values).
+
 ``` python
 !named_xlsx-refresh --root "examples/"
 ```
+
+Display new state:
 
 ``` python
 !named_xlsx-save "examples/sample-2_modified.xlsx"

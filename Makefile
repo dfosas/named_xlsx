@@ -12,7 +12,7 @@ install:  ## Install in local system
 	INSTALL_ON_LINUX=1 flit install --symlink --extras all
 
 update:  ## Update documentation
-	quarto render .\README.qmd --to md
+	quarto render README.qmd --to md
 
 lint:  ## Lint and static-check
 	black --check --diff --color $(dir_package) $(dir_tests)
