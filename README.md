@@ -1,11 +1,7 @@
 # `named_xlsx`
 
 
-<figure>
-<a href="https://github.com/psf/black"><img
-src="https://img.shields.io/badge/code%20style-black-000000.svg" /></a>
-<figcaption>Code style: black</figcaption>
-</figure>
+[![](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
 ## What is it?
 

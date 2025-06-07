@@ -11,7 +11,7 @@ jupyter: py312
 #     * Would drop a qmd README for that (no quarto really).
 ---
 # `named_xlsx`
-[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+[![](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
 ## What is it?
 This project creates a toolbox to work with Excel files from Python. 
