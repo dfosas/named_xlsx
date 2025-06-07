@@ -3,20 +3,15 @@ editor:
   markdown:
     wrap: 88
 jupyter: py312
+
+# TODO
+# * [ ] Documentation with MkDocs? (just to try it).
+#     * See sample tutorial [here](https://realpython.com/python-project-documentation-with-mkdocs/#add-module-docstrings).
+#     * [Material theme](https://squidfunk.github.io/mkdocs-material/getting-started/).
+#     * Would drop a qmd README for that (no quarto really).
 ---
-
 # `named_xlsx`
-
-[![Code style: black](
-https://img.shields.io/badge/code%20style-black-000000.svg)](
-https://github.com/psf/black)
-
-## TODO
-
-* [ ] Documentation with MkDocs? (just to try it).
-    * See sample tutorial [here](https://realpython.com/python-project-documentation-with-mkdocs/#add-module-docstrings).
-    * [Material theme](https://squidfunk.github.io/mkdocs-material/getting-started/).
-    * Would drop a qmd README for that (no quarto really).
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
 ## What is it?
 This project creates a toolbox to work with Excel files from Python. 
@@ -60,7 +55,7 @@ to see how spreadsheets are modified.
 Save configuration by listing named cells with their current values,
 optionally filtering names.
 
-```{python}
+```{commandline}
 !named_xlsx-save "examples/sample-1_base.xlsx" --filter_prefix="i."
 ```
 

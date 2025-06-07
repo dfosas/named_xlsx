@@ -1,22 +1,11 @@
-# Load
-
-
 # `named_xlsx`
+
 
 <figure>
 <a href="https://github.com/psf/black"><img
 src="https://img.shields.io/badge/code%20style-black-000000.svg" /></a>
 <figcaption>Code style: black</figcaption>
 </figure>
-
-## TODO
-
--   ☐ Documentation with MkDocs? (just to try it).
-    -   See sample tutorial
-        [here](https://realpython.com/python-project-documentation-with-mkdocs/#add-module-docstrings).
-    -   [Material
-        theme](https://squidfunk.github.io/mkdocs-material/getting-started/).
-    -   Would drop a qmd README for that (no quarto really).
 
 ## What is it?
 
@@ -59,17 +48,11 @@ how spreadsheets are modified.
 Save configuration by listing named cells with their current values,
 optionally filtering names.
 
-``` python
+``` {commandline}
 !named_xlsx-save "examples/sample-1_base.xlsx" --filter_prefix="i."
 ```
 
-    [sheet_1]
-    "i.a" = 2
-    "i.b" = 4
-
-    [sheet_2]
-    "i.x" = 3
-    "i.y" = 5
+### Load
 
 Load configuration onto target spreadsheet and save.
 
