@@ -20,6 +20,7 @@ with or without macros by developing interfaces with named cells.
 It enables reading from and writing to such cells, among other convenient functions.
 
 In particular:
+
 * Implements an interface to work with named cells (workbook scope) in Excel:
   * read and write;
   * type conversion;
@@ -56,7 +57,7 @@ to see how spreadsheets are modified.
 Save configuration by listing named cells with their current values,
 optionally filtering names.
 
-```{commandline}
+```{python}
 !named_xlsx-save "examples/sample-1_base.xlsx" --filter_prefix="i."
 ```
 

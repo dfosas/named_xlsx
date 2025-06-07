@@ -11,14 +11,21 @@ without macros by developing interfaces with named cells. It enables
 reading from and writing to such cells, among other convenient
 functions.
 
-In particular: \* Implements an interface to work with named cells
-(workbook scope) in Excel: \* read and write; \* type conversion; \*
-individual cells, vectors, tables; \* with different backends in Python
-(`openpxyl`, `xlwings`). \* Utility class to work with cell addresses
-and named tables (tables that know they are tables). \* Functions and
-command line tools to: \* Read and save to text files named cells and
-their values. \* Load and save to Excel files configuration for named
-cells from text files. \* Refresh cached values in files.
+In particular:
+
+-   Implements an interface to work with named cells (workbook scope) in
+    Excel:
+    -   read and write;
+    -   type conversion;
+    -   individual cells, vectors, tables;
+    -   with different backends in Python (`openpxyl`, `xlwings`).
+-   Utility class to work with cell addresses and named tables (tables
+    that know they are tables).
+-   Functions and command line tools to:
+    -   Read and save to text files named cells and their values.
+    -   Load and save to Excel files configuration for named cells from
+        text files.
+    -   Refresh cached values in files.
 
 ## Background
 
@@ -46,9 +53,17 @@ how spreadsheets are modified.
 Save configuration by listing named cells with their current values,
 optionally filtering names.
 
-``` {commandline}
+``` python
 !named_xlsx-save "examples/sample-1_base.xlsx" --filter_prefix="i."
 ```
+
+    [sheet_1]
+    "i.a" = 2
+    "i.b" = 4
+
+    [sheet_2]
+    "i.x" = 3
+    "i.y" = 5
 
 ### Load
 
