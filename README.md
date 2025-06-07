@@ -2,8 +2,7 @@
 
 
 [![](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
-[![Built with Material for
-MkDocs](https://img.shields.io/badge/Material_for_MkDocs-526CFE?style=for-the-badge&logo=MaterialForMkDocs&logoColor=white.png)](https://dfosas.github.io/named_xlsx/)
+[![](https://shields.io/badge/MkDocs-documentation-informational.png)](https://dfosas.github.io/named_xlsx/)
 
 ## What is it?
 
