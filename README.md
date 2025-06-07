@@ -5,18 +5,20 @@
 
 ## What is it?
 
-This project creates a toolbox to work with Excel files from Python. It
-aims to help releasing Excel-based workbooks without macros by working
-with interfaces built on top of named cells. It helps read from and
-write to such cells and other convenient functions. In particular: \*
-Implements an interface to work with named cells (workbook scope) in
-Excel: \* read and write; \* type conversion; \* individual cells,
-vectors, tables; \* with different backends in Python (`openpxyl`,
-`xlwings`). \* Utility class to work with cell addresses and named
-tables (tables that know they are tables). \* Functions and command line
-tools to: \* Read and save to text files named cells and their values.
-\* Load and save to Excel files configuration for named cells from text
-files. \* Refresh cached values in files.
+This project creates a toolbox for working with Excel files from Python.
+It aims to facilitate the release of Excel-based workbooks with or
+without macros by developing interfaces with named cells. It enables
+reading from and writing to such cells, among other convenient
+functions.
+
+In particular: \* Implements an interface to work with named cells
+(workbook scope) in Excel: \* read and write; \* type conversion; \*
+individual cells, vectors, tables; \* with different backends in Python
+(`openpxyl`, `xlwings`). \* Utility class to work with cell addresses
+and named tables (tables that know they are tables). \* Functions and
+command line tools to: \* Read and save to text files named cells and
+their values. \* Load and save to Excel files configuration for named
+cells from text files. \* Refresh cached values in files.
 
 ## Background
 
@@ -27,7 +29,7 @@ easier to manage from Python. Given evergrowing needs to do different
 things around this, it made sense working with a number of libraries in
 Python: some are faster than others to create file variants, some are
 supported in any platform, some require having Excel installed,
-sometimes there is a need to work with a feature that only library X
+sometimes there is a need to work with a feature that only one library
 supports, etc. Thus, this package covers all utilities in one place and
 attempts to have a consistent, flexible interface that allows swapping
 underlying libraries whenever possible (`openpyxl`, `xlwings`).
