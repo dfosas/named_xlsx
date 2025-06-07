@@ -1,4 +1,5 @@
 # coding=utf-8
+"""Utilities."""
 from dataclasses import dataclass, field
 from itertools import product
 from pathlib import Path
@@ -21,6 +22,8 @@ MaybePathlike = Pathlike | None
 
 @dataclass
 class Table:
+    """Spreadsheet table."""
+
     name: str
     sheet: str
     _table: openpyxl.worksheet.table.Table = field(repr=False)
@@ -49,6 +52,19 @@ class Table:
 def table_destination(
     ref: str, /, tables: dict[str, Table], **kwargs
 ) -> tuple[str, str]:
+    """
+    Return the address of a table.
+
+    Parameters
+    ----------
+    ref
+    tables
+    kwargs
+
+    Returns
+    -------
+
+    """
     r = parse("{table_name}[{table_colname}]", ref)
     table_name = r["table_name"]
     table_colname = r["table_colname"]
@@ -96,6 +112,8 @@ class XLSXAddress:
     """
     Excel address, with or without sheet name, according to project conventions.
 
+    Examples
+    --------
     >>> a = XLSXAddress("My Sheet!A10:A15")
     >>> a
     XLSXAddress(value='My Sheet!A10:A15')

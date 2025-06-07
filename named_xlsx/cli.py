@@ -1,24 +1,46 @@
 # coding=utf-8
+"""Commandline Interfaces."""
 from contextlib import closing
 from pathlib import Path
 import shutil
 import fire
 import toml
 
-from named_xlsx.engines import OpenPYXL, MaybeStr
+from named_xlsx.engines import Engine, OpenPYXL, MaybeStr
 
 
-def load(p_toml: Path, p_xlsx: Path, p_out: Path) -> None:
+def load(p_toml: Path, p_xlsx: Path, p_out: Path, engine: Engine = OpenPYXL) -> Path:
+    """
+    Load configuration to a spreadsheet and save it to a file.
+
+    Parameters
+    ----------
+    p_toml
+        Path to the TOML file.
+    p_xlsx
+        Path to the XLSX file.
+    p_out
+        Path to the output file.
+    engine
+        Workbook engine to use.
+
+    Returns
+    -------
+    Path to the output file.
+
+    """
     cfg = {
         name: value
         for sheet, mapping in toml.load(p_toml).items()
         for name, value in mapping.items()
     }
     shutil.copy(p_xlsx, p_out)
-    with closing(OpenPYXL.from_file(p_out)) as m:
+    with closing(engine.from_file(p_out)) as m:
         for addr, vals in cfg.items():
             m.write_via_name(addr, vals)
         m.save()
+
+    return p_out
 
 
 def save(

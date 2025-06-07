@@ -1,0 +1,18 @@
+site_name: named_xlsx
+
+theme:
+  name: "material"
+
+plugins:
+  - mkdocstrings:
+      handlers:
+        python:
+          options:
+            docstring_style: numpy
+
+nav:
+  - Overview: index.md
+  - Commandline Interfaces: z-api-cli.md
+  - Engines: z-api-engines.md
+  - Refresh: z-api-refresh.md
+  - Utilities: z-api-utils.md

@@ -1,4 +1,5 @@
 # coding=utf-8
+"""Routines to refresh calculated values."""
 import argparse
 import shutil
 from pathlib import Path
@@ -8,7 +9,14 @@ from tempfile import TemporaryDirectory
 import xlwings
 
 
-def refresh_path(path: Path):
+def refresh_path(path: Path) -> None:
+    """
+
+    Parameters
+    ----------
+    path
+
+    """
     modified_time_old = path.stat().st_mtime
     with xlwings.Book(path) as wb:
         wb.save()

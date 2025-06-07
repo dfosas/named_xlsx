@@ -1,4 +1,5 @@
 # coding=utf-8
+"""Engines."""
 from abc import abstractmethod
 from contextlib import suppress
 from typing import Any, Type
@@ -25,6 +26,8 @@ __all__ = ["ENGINES", "OpenPYXL"]
 
 
 class AbstractEngine:
+    """General Engine interface."""
+
     def __init__(self, wb, path: MaybePathlike = None):
         self.wb = wb
         self.path = path
@@ -152,6 +155,7 @@ Engine = Type[AbstractEngine]
 
 
 class OpenPYXL(AbstractEngine):
+    """oenpyxl engine."""
 
     @property
     def names(self):
@@ -216,6 +220,7 @@ with suppress(ImportError):
     from xlwings import Book
 
     class XLWings(AbstractEngine):
+        """xlwings engine."""
 
         @property
         def names(self):
