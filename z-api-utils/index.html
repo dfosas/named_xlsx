@@ -1,0 +1,1730 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../z-api-refresh/">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>Utilities - named_xlsx</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.342714a4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/_mkdocstrings.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#named_xlsx.utils" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="named_xlsx" class="md-header__button md-logo" aria-label="named_xlsx" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            named_xlsx
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Utilities
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="named_xlsx" class="md-nav__button md-logo" aria-label="named_xlsx" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    named_xlsx
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../z-api-cli/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Commandline Interfaces
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../z-api-engines/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Engines
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../z-api-refresh/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Refresh
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Utilities
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Utilities
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#named_xlsx.utils" class="md-nav__link">
+    <span class="md-ellipsis">
+      utils
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#named_xlsx.utils.Table" class="md-nav__link">
+    <span class="md-ellipsis">
+      Table
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#named_xlsx.utils.XLSXAddress" class="md-nav__link">
+    <span class="md-ellipsis">
+      XLSXAddress
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="XLSXAddress">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#named_xlsx.utils.XLSXAddress.is_range" class="md-nav__link">
+    <span class="md-ellipsis">
+      is_range
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#named_xlsx.utils.XLSXAddress.shape" class="md-nav__link">
+    <span class="md-ellipsis">
+      shape
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#named_xlsx.utils.XLSXAddress.size" class="md-nav__link">
+    <span class="md-ellipsis">
+      size
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#named_xlsx.utils.XLSXAddress.as_array" class="md-nav__link">
+    <span class="md-ellipsis">
+      as_array
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#named_xlsx.utils.XLSXAddress.from_parts" class="md-nav__link">
+    <span class="md-ellipsis">
+      from_parts
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#named_xlsx.utils.get_destinations" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_destinations
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#named_xlsx.utils.nanaverage" class="md-nav__link">
+    <span class="md-ellipsis">
+      nanaverage
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#named_xlsx.utils.table_destination" class="md-nav__link">
+    <span class="md-ellipsis">
+      table_destination
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#named_xlsx.utils" class="md-nav__link">
+    <span class="md-ellipsis">
+      utils
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#named_xlsx.utils.Table" class="md-nav__link">
+    <span class="md-ellipsis">
+      Table
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#named_xlsx.utils.XLSXAddress" class="md-nav__link">
+    <span class="md-ellipsis">
+      XLSXAddress
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="XLSXAddress">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#named_xlsx.utils.XLSXAddress.is_range" class="md-nav__link">
+    <span class="md-ellipsis">
+      is_range
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#named_xlsx.utils.XLSXAddress.shape" class="md-nav__link">
+    <span class="md-ellipsis">
+      shape
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#named_xlsx.utils.XLSXAddress.size" class="md-nav__link">
+    <span class="md-ellipsis">
+      size
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#named_xlsx.utils.XLSXAddress.as_array" class="md-nav__link">
+    <span class="md-ellipsis">
+      as_array
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#named_xlsx.utils.XLSXAddress.from_parts" class="md-nav__link">
+    <span class="md-ellipsis">
+      from_parts
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#named_xlsx.utils.get_destinations" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_destinations
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#named_xlsx.utils.nanaverage" class="md-nav__link">
+    <span class="md-ellipsis">
+      nanaverage
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#named_xlsx.utils.table_destination" class="md-nav__link">
+    <span class="md-ellipsis">
+      table_destination
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>Utilities</h1>
+
+<div class="doc doc-object doc-module">
+
+
+
+<a id="named_xlsx.utils"></a>
+    <div class="doc doc-contents first">
+
+        <p>Utilities.</p>
+
+
+
+
+
+
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="named_xlsx.utils.Table" class="doc doc-heading">
+            <code>Table</code>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-dataclass"><code>dataclass</code></small>
+  </span>
+
+</h2>
+
+
+    <div class="doc doc-contents ">
+
+
+        <p>Spreadsheet table.</p>
+
+
+
+
+
+
+
+              <details class="quote">
+                <summary>Source code in <code>named_xlsx/utils.py</code></summary>
+                <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Table</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Spreadsheet table.&quot;&quot;&quot;</span>
+
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">sheet</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">_table</span><span class="p">:</span> <span class="n">openpyxl</span><span class="o">.</span><span class="n">worksheet</span><span class="o">.</span><span class="n">table</span><span class="o">.</span><span class="n">Table</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="nb">repr</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">cells</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_table</span><span class="o">.</span><span class="n">ref</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">mapper_columns</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]:</span>
+        <span class="n">table_colnames</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_table</span><span class="o">.</span><span class="n">column_names</span>
+        <span class="n">cr</span> <span class="o">=</span> <span class="n">CellRange</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cells</span><span class="p">)</span>
+        <span class="n">cr</span><span class="o">.</span><span class="n">shrink</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="n">table_colsindx</span> <span class="o">=</span> <span class="p">[</span><span class="n">col</span> <span class="k">for</span> <span class="n">row</span><span class="p">,</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">cr</span><span class="o">.</span><span class="n">top</span><span class="p">]</span>
+        <span class="n">table_rowsindx</span> <span class="o">=</span> <span class="p">[</span><span class="n">row</span> <span class="k">for</span> <span class="n">row</span><span class="p">,</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">cr</span><span class="o">.</span><span class="n">left</span><span class="p">]</span>
+        <span class="n">table_row_top</span><span class="p">,</span> <span class="n">table_row_bottom</span> <span class="o">=</span> <span class="n">table_rowsindx</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">table_rowsindx</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+        <span class="n">data</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">col_name</span><span class="p">,</span> <span class="n">col_indx</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">table_colnames</span><span class="p">,</span> <span class="n">table_colsindx</span><span class="p">):</span>
+            <span class="n">col_letter</span> <span class="o">=</span> <span class="n">get_column_letter</span><span class="p">(</span><span class="n">col_indx</span><span class="p">)</span>
+            <span class="n">addr</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">col_letter</span><span class="si">}{</span><span class="n">table_row_top</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">col_letter</span><span class="si">}{</span><span class="n">table_row_bottom</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="n">data</span><span class="p">[</span><span class="n">col_name</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sheet</span><span class="p">,</span> <span class="n">addr</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">data</span>
+</code></pre></div></td></tr></table></div>
+              </details>
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="named_xlsx.utils.XLSXAddress" class="doc doc-heading">
+            <code>XLSXAddress</code>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-dataclass"><code>dataclass</code></small>
+  </span>
+
+</h2>
+
+
+    <div class="doc doc-contents ">
+
+
+        <p>Excel address, with or without sheet name, according to project conventions.</p>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">XLSXAddress</span><span class="p">(</span><span class="s2">&quot;My Sheet!A10:A15&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
+<span class="go">XLSXAddress(value=&#39;My Sheet!A10:A15&#39;)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">sheet</span>
+<span class="go">&#39;My Sheet&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">coord</span>
+<span class="go">&#39;A10:A15&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">XLSXAddress</span><span class="p">(</span><span class="s2">&quot;A10:A15&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
+<span class="go">XLSXAddress(value=&#39;A10:A15&#39;)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">sheet</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">coord</span>
+<span class="go">&#39;A10:A15&#39;</span>
+</code></pre></div>
+
+
+
+
+
+
+
+              <details class="quote">
+                <summary>Source code in <code>named_xlsx/utils.py</code></summary>
+                <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span>
+<span class="normal">113</span>
+<span class="normal">114</span>
+<span class="normal">115</span>
+<span class="normal">116</span>
+<span class="normal">117</span>
+<span class="normal">118</span>
+<span class="normal">119</span>
+<span class="normal">120</span>
+<span class="normal">121</span>
+<span class="normal">122</span>
+<span class="normal">123</span>
+<span class="normal">124</span>
+<span class="normal">125</span>
+<span class="normal">126</span>
+<span class="normal">127</span>
+<span class="normal">128</span>
+<span class="normal">129</span>
+<span class="normal">130</span>
+<span class="normal">131</span>
+<span class="normal">132</span>
+<span class="normal">133</span>
+<span class="normal">134</span>
+<span class="normal">135</span>
+<span class="normal">136</span>
+<span class="normal">137</span>
+<span class="normal">138</span>
+<span class="normal">139</span>
+<span class="normal">140</span>
+<span class="normal">141</span>
+<span class="normal">142</span>
+<span class="normal">143</span>
+<span class="normal">144</span>
+<span class="normal">145</span>
+<span class="normal">146</span>
+<span class="normal">147</span>
+<span class="normal">148</span>
+<span class="normal">149</span>
+<span class="normal">150</span>
+<span class="normal">151</span>
+<span class="normal">152</span>
+<span class="normal">153</span>
+<span class="normal">154</span>
+<span class="normal">155</span>
+<span class="normal">156</span>
+<span class="normal">157</span>
+<span class="normal">158</span>
+<span class="normal">159</span>
+<span class="normal">160</span>
+<span class="normal">161</span>
+<span class="normal">162</span>
+<span class="normal">163</span>
+<span class="normal">164</span>
+<span class="normal">165</span>
+<span class="normal">166</span>
+<span class="normal">167</span>
+<span class="normal">168</span>
+<span class="normal">169</span>
+<span class="normal">170</span>
+<span class="normal">171</span>
+<span class="normal">172</span>
+<span class="normal">173</span>
+<span class="normal">174</span>
+<span class="normal">175</span>
+<span class="normal">176</span>
+<span class="normal">177</span>
+<span class="normal">178</span>
+<span class="normal">179</span>
+<span class="normal">180</span>
+<span class="normal">181</span>
+<span class="normal">182</span>
+<span class="normal">183</span>
+<span class="normal">184</span>
+<span class="normal">185</span>
+<span class="normal">186</span>
+<span class="normal">187</span>
+<span class="normal">188</span>
+<span class="normal">189</span>
+<span class="normal">190</span>
+<span class="normal">191</span>
+<span class="normal">192</span>
+<span class="normal">193</span>
+<span class="normal">194</span>
+<span class="normal">195</span>
+<span class="normal">196</span>
+<span class="normal">197</span>
+<span class="normal">198</span>
+<span class="normal">199</span>
+<span class="normal">200</span>
+<span class="normal">201</span>
+<span class="normal">202</span>
+<span class="normal">203</span>
+<span class="normal">204</span>
+<span class="normal">205</span>
+<span class="normal">206</span>
+<span class="normal">207</span>
+<span class="normal">208</span>
+<span class="normal">209</span>
+<span class="normal">210</span>
+<span class="normal">211</span>
+<span class="normal">212</span>
+<span class="normal">213</span>
+<span class="normal">214</span>
+<span class="normal">215</span>
+<span class="normal">216</span>
+<span class="normal">217</span>
+<span class="normal">218</span>
+<span class="normal">219</span>
+<span class="normal">220</span>
+<span class="normal">221</span>
+<span class="normal">222</span>
+<span class="normal">223</span>
+<span class="normal">224</span>
+<span class="normal">225</span>
+<span class="normal">226</span>
+<span class="normal">227</span>
+<span class="normal">228</span>
+<span class="normal">229</span>
+<span class="normal">230</span>
+<span class="normal">231</span>
+<span class="normal">232</span>
+<span class="normal">233</span>
+<span class="normal">234</span>
+<span class="normal">235</span>
+<span class="normal">236</span>
+<span class="normal">237</span>
+<span class="normal">238</span>
+<span class="normal">239</span>
+<span class="normal">240</span>
+<span class="normal">241</span>
+<span class="normal">242</span>
+<span class="normal">243</span>
+<span class="normal">244</span>
+<span class="normal">245</span>
+<span class="normal">246</span>
+<span class="normal">247</span>
+<span class="normal">248</span>
+<span class="normal">249</span>
+<span class="normal">250</span>
+<span class="normal">251</span>
+<span class="normal">252</span>
+<span class="normal">253</span>
+<span class="normal">254</span>
+<span class="normal">255</span>
+<span class="normal">256</span>
+<span class="normal">257</span>
+<span class="normal">258</span>
+<span class="normal">259</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">XLSXAddress</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Excel address, with or without sheet name, according to project conventions.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; a = XLSXAddress(&quot;My Sheet!A10:A15&quot;)</span>
+<span class="sd">    &gt;&gt;&gt; a</span>
+<span class="sd">    XLSXAddress(value=&#39;My Sheet!A10:A15&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; a.sheet</span>
+<span class="sd">    &#39;My Sheet&#39;</span>
+<span class="sd">    &gt;&gt;&gt; a.coord</span>
+<span class="sd">    &#39;A10:A15&#39;</span>
+<span class="sd">    &gt;&gt;&gt; a = XLSXAddress(&quot;A10:A15&quot;)</span>
+<span class="sd">    &gt;&gt;&gt; a</span>
+<span class="sd">    XLSXAddress(value=&#39;A10:A15&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; a.sheet</span>
+<span class="sd">    &gt;&gt;&gt; a.coord</span>
+<span class="sd">    &#39;A10:A15&#39;</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">value</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">sheet</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="nb">repr</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">coord</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="nb">repr</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">_parsed</span><span class="p">:</span> <span class="n">CellRange</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="nb">repr</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">__post_init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span>
+        <span class="k">if</span> <span class="s2">&quot; &quot;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="ow">and</span> <span class="s2">&quot;!&quot;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">:</span>
+            <span class="n">sheet</span><span class="p">,</span> <span class="n">coord</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">rsplit</span><span class="p">(</span><span class="s2">&quot;!&quot;</span><span class="p">)</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;&#39;</span><span class="si">{</span><span class="n">sheet</span><span class="si">}</span><span class="s2">&#39;!</span><span class="si">{</span><span class="n">coord</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">_parsed</span> <span class="o">=</span> <span class="n">CellRange</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Cannot parse: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">e</span>
+        <span class="nb">object</span><span class="o">.</span><span class="fm">__setattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;_parsed&quot;</span><span class="p">,</span> <span class="n">_parsed</span><span class="p">)</span>
+        <span class="nb">object</span><span class="o">.</span><span class="fm">__setattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;sheet&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parsed</span><span class="o">.</span><span class="n">title</span><span class="p">)</span>
+        <span class="nb">object</span><span class="o">.</span><span class="fm">__setattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;coord&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parsed</span><span class="o">.</span><span class="n">coord</span><span class="p">)</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">from_parts</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">sheet</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">coords</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Build instance from parts.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        sheet</span>
+<span class="sd">            Sheet name. Can be `None`.</span>
+<span class="sd">        coords</span>
+<span class="sd">            Coordinates. Must always be given.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; XLSXAddress.from_parts(&quot;My Sheet&quot;, &quot;A10&quot;)</span>
+<span class="sd">        XLSXAddress(value=&#39;My Sheet!A10&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; XLSXAddress.from_parts(None, &quot;A10&quot;)</span>
+<span class="sd">        XLSXAddress(value=&#39;A10&#39;)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">coords</span> <span class="k">if</span> <span class="n">sheet</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">sheet</span><span class="si">}</span><span class="s2">!</span><span class="si">{</span><span class="n">coords</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">as_array</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">order</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;row&quot;</span><span class="p">,</span> <span class="n">squeeze</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Generate coordinate array (row major: left-right then top-down).</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        order</span>
+<span class="sd">            Specify the order, one of [&#39;row&#39;, &#39;col&#39;].</span>
+<span class="sd">        squeeze</span>
+<span class="sd">            Drop single-dimensional entries from the shape of the resulting array.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; XLSXAddress(&quot;A10:B11&quot;).as_array()</span>
+<span class="sd">        array([[&#39;A10&#39;, &#39;B10&#39;],</span>
+<span class="sd">               [&#39;A11&#39;, &#39;B11&#39;]], dtype=&#39;&lt;U3&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; XLSXAddress(&quot;Hello!A10:B11&quot;).as_array()</span>
+<span class="sd">        array([[&#39;A10&#39;, &#39;B10&#39;],</span>
+<span class="sd">               [&#39;A11&#39;, &#39;B11&#39;]], dtype=&#39;&lt;U3&#39;)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">d</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="n">rows_from_range</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="n">cols_from_range</span><span class="p">)</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="n">order</span><span class="p">](</span><span class="bp">self</span><span class="o">.</span><span class="n">coord</span><span class="p">)))</span>
+        <span class="k">if</span> <span class="n">squeeze</span><span class="p">:</span>
+            <span class="n">out</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">out</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">is_range</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; XLSXAddress(&quot;A10&quot;).is_range</span>
+<span class="sd">        False</span>
+<span class="sd">        &gt;&gt;&gt; XLSXAddress(&quot;A10:B11&quot;).is_range</span>
+<span class="sd">        True</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unexpected </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="si">=}</span><span class="s2"> for </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">size</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Size of the address (number of elements).</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; XLSXAddress(&quot;A10&quot;).size</span>
+<span class="sd">        np.int64(1)</span>
+<span class="sd">        &gt;&gt;&gt; XLSXAddress(&quot;A10:A10&quot;).size</span>
+<span class="sd">        np.int64(1)</span>
+<span class="sd">        &gt;&gt;&gt; XLSXAddress(&quot;A10:C11&quot;).size</span>
+<span class="sd">        np.int64(6)</span>
+<span class="sd">        &gt;&gt;&gt; XLSXAddress(&quot;A10:A12&quot;).size</span>
+<span class="sd">        np.int64(3)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_parsed</span><span class="o">.</span><span class="n">size</span><span class="o">.</span><span class="n">values</span><span class="p">()))</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">shape</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Shape of the address as `(row, column)`.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; XLSXAddress(&quot;A10&quot;).shape</span>
+<span class="sd">        (1, 1)</span>
+<span class="sd">        &gt;&gt;&gt; XLSXAddress(&quot;A10:A10&quot;).shape</span>
+<span class="sd">        (1, 1)</span>
+<span class="sd">        &gt;&gt;&gt; XLSXAddress(&quot;A10:C11&quot;).shape</span>
+<span class="sd">        (2, 3)</span>
+<span class="sd">        &gt;&gt;&gt; XLSXAddress(&quot;A10:A12&quot;).shape</span>
+<span class="sd">        (3, 1)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">d</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parsed</span><span class="o">.</span><span class="n">size</span>
+        <span class="k">return</span> <span class="n">d</span><span class="p">[</span><span class="s2">&quot;rows&quot;</span><span class="p">],</span> <span class="n">d</span><span class="p">[</span><span class="s2">&quot;columns&quot;</span><span class="p">]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">format</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">sheet</span><span class="si">}</span><span class="s2">!</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">coord</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">sheet</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">coord</span>
+</code></pre></div></td></tr></table></div>
+              </details>
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="named_xlsx.utils.XLSXAddress.is_range" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">is_range</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-property"><code>property</code></small>
+  </span>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">XLSXAddress</span><span class="p">(</span><span class="s2">&quot;A10&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">is_range</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">XLSXAddress</span><span class="p">(</span><span class="s2">&quot;A10:B11&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">is_range</span>
+<span class="go">True</span>
+</code></pre></div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="named_xlsx.utils.XLSXAddress.shape" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">shape</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-property"><code>property</code></small>
+  </span>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Shape of the address as <code>(row, column)</code>.</p>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">XLSXAddress</span><span class="p">(</span><span class="s2">&quot;A10&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span>
+<span class="go">(1, 1)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">XLSXAddress</span><span class="p">(</span><span class="s2">&quot;A10:A10&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span>
+<span class="go">(1, 1)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">XLSXAddress</span><span class="p">(</span><span class="s2">&quot;A10:C11&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span>
+<span class="go">(2, 3)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">XLSXAddress</span><span class="p">(</span><span class="s2">&quot;A10:A12&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span>
+<span class="go">(3, 1)</span>
+</code></pre></div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="named_xlsx.utils.XLSXAddress.size" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">size</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-property"><code>property</code></small>
+  </span>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Size of the address (number of elements).</p>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">XLSXAddress</span><span class="p">(</span><span class="s2">&quot;A10&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">size</span>
+<span class="go">np.int64(1)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">XLSXAddress</span><span class="p">(</span><span class="s2">&quot;A10:A10&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">size</span>
+<span class="go">np.int64(1)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">XLSXAddress</span><span class="p">(</span><span class="s2">&quot;A10:C11&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">size</span>
+<span class="go">np.int64(6)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">XLSXAddress</span><span class="p">(</span><span class="s2">&quot;A10:A12&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">size</span>
+<span class="go">np.int64(3)</span>
+</code></pre></div>
+
+    </div>
+
+</div>
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="named_xlsx.utils.XLSXAddress.as_array" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">as_array</span><span class="p">(</span><span class="n">order</span><span class="o">=</span><span class="s1">&#39;row&#39;</span><span class="p">,</span> <span class="n">squeeze</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Generate coordinate array (row major: left-right then top-down).</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>order</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Specify the order, one of ['row', 'col'].</p>
+              </div>
+            </td>
+            <td>
+                  <code>&#39;row&#39;</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>squeeze</code>
+            </td>
+            <td>
+                  <code><span title="bool">bool</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Drop single-dimensional entries from the shape of the resulting array.</p>
+              </div>
+            </td>
+            <td>
+                  <code>True</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">XLSXAddress</span><span class="p">(</span><span class="s2">&quot;A10:B11&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">as_array</span><span class="p">()</span>
+<span class="go">array([[&#39;A10&#39;, &#39;B10&#39;],</span>
+<span class="go">       [&#39;A11&#39;, &#39;B11&#39;]], dtype=&#39;&lt;U3&#39;)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">XLSXAddress</span><span class="p">(</span><span class="s2">&quot;Hello!A10:B11&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">as_array</span><span class="p">()</span>
+<span class="go">array([[&#39;A10&#39;, &#39;B10&#39;],</span>
+<span class="go">       [&#39;A11&#39;, &#39;B11&#39;]], dtype=&#39;&lt;U3&#39;)</span>
+</code></pre></div>
+
+
+            <details class="quote">
+              <summary>Source code in <code>named_xlsx/utils.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">174</span>
+<span class="normal">175</span>
+<span class="normal">176</span>
+<span class="normal">177</span>
+<span class="normal">178</span>
+<span class="normal">179</span>
+<span class="normal">180</span>
+<span class="normal">181</span>
+<span class="normal">182</span>
+<span class="normal">183</span>
+<span class="normal">184</span>
+<span class="normal">185</span>
+<span class="normal">186</span>
+<span class="normal">187</span>
+<span class="normal">188</span>
+<span class="normal">189</span>
+<span class="normal">190</span>
+<span class="normal">191</span>
+<span class="normal">192</span>
+<span class="normal">193</span>
+<span class="normal">194</span>
+<span class="normal">195</span>
+<span class="normal">196</span>
+<span class="normal">197</span>
+<span class="normal">198</span>
+<span class="normal">199</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">as_array</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">order</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;row&quot;</span><span class="p">,</span> <span class="n">squeeze</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Generate coordinate array (row major: left-right then top-down).</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    order</span>
+<span class="sd">        Specify the order, one of [&#39;row&#39;, &#39;col&#39;].</span>
+<span class="sd">    squeeze</span>
+<span class="sd">        Drop single-dimensional entries from the shape of the resulting array.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; XLSXAddress(&quot;A10:B11&quot;).as_array()</span>
+<span class="sd">    array([[&#39;A10&#39;, &#39;B10&#39;],</span>
+<span class="sd">           [&#39;A11&#39;, &#39;B11&#39;]], dtype=&#39;&lt;U3&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; XLSXAddress(&quot;Hello!A10:B11&quot;).as_array()</span>
+<span class="sd">    array([[&#39;A10&#39;, &#39;B10&#39;],</span>
+<span class="sd">           [&#39;A11&#39;, &#39;B11&#39;]], dtype=&#39;&lt;U3&#39;)</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="n">rows_from_range</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="n">cols_from_range</span><span class="p">)</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="n">order</span><span class="p">](</span><span class="bp">self</span><span class="o">.</span><span class="n">coord</span><span class="p">)))</span>
+    <span class="k">if</span> <span class="n">squeeze</span><span class="p">:</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">out</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="named_xlsx.utils.XLSXAddress.from_parts" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">from_parts</span><span class="p">(</span><span class="n">sheet</span><span class="p">,</span> <span class="n">coords</span><span class="p">)</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-classmethod"><code>classmethod</code></small>
+  </span>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Build instance from parts.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>sheet</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Sheet name. Can be <code>None</code>.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>coords</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Coordinates. Must always be given.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">XLSXAddress</span><span class="o">.</span><span class="n">from_parts</span><span class="p">(</span><span class="s2">&quot;My Sheet&quot;</span><span class="p">,</span> <span class="s2">&quot;A10&quot;</span><span class="p">)</span>
+<span class="go">XLSXAddress(value=&#39;My Sheet!A10&#39;)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">XLSXAddress</span><span class="o">.</span><span class="n">from_parts</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;A10&quot;</span><span class="p">)</span>
+<span class="go">XLSXAddress(value=&#39;A10&#39;)</span>
+</code></pre></div>
+
+
+            <details class="quote">
+              <summary>Source code in <code>named_xlsx/utils.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">152</span>
+<span class="normal">153</span>
+<span class="normal">154</span>
+<span class="normal">155</span>
+<span class="normal">156</span>
+<span class="normal">157</span>
+<span class="normal">158</span>
+<span class="normal">159</span>
+<span class="normal">160</span>
+<span class="normal">161</span>
+<span class="normal">162</span>
+<span class="normal">163</span>
+<span class="normal">164</span>
+<span class="normal">165</span>
+<span class="normal">166</span>
+<span class="normal">167</span>
+<span class="normal">168</span>
+<span class="normal">169</span>
+<span class="normal">170</span>
+<span class="normal">171</span>
+<span class="normal">172</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@classmethod</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">from_parts</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">sheet</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">coords</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Build instance from parts.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    sheet</span>
+<span class="sd">        Sheet name. Can be `None`.</span>
+<span class="sd">    coords</span>
+<span class="sd">        Coordinates. Must always be given.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; XLSXAddress.from_parts(&quot;My Sheet&quot;, &quot;A10&quot;)</span>
+<span class="sd">    XLSXAddress(value=&#39;My Sheet!A10&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; XLSXAddress.from_parts(None, &quot;A10&quot;)</span>
+<span class="sd">    XLSXAddress(value=&#39;A10&#39;)</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">coords</span> <span class="k">if</span> <span class="n">sheet</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">sheet</span><span class="si">}</span><span class="s2">!</span><span class="si">{</span><span class="n">coords</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="named_xlsx.utils.get_destinations" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">get_destinations</span><span class="p">(</span><span class="n">defined_name</span><span class="p">,</span> <span class="n">tables</span><span class="p">)</span></code>
+
+</h2>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Get plain spreadsheet address from defined names.</p>
+<p>This is a middle-man function because openpyxl does not seem to deal with
+defined names that point to table columns.
+As per project conventions, tables are labelled <code>t.&lt;name&gt;</code>,
+so this function deals with that case separately with a bunch of
+hard-set conditions.</p>
+
+
+            <details class="quote">
+              <summary>Source code in <code>named_xlsx/utils.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 88</span>
+<span class="normal"> 89</span>
+<span class="normal"> 90</span>
+<span class="normal"> 91</span>
+<span class="normal"> 92</span>
+<span class="normal"> 93</span>
+<span class="normal"> 94</span>
+<span class="normal"> 95</span>
+<span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span>
+<span class="normal">106</span>
+<span class="normal">107</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@cached</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_destinations</span><span class="p">(</span>
+    <span class="n">defined_name</span><span class="p">:</span> <span class="n">DefinedName</span><span class="p">,</span> <span class="n">tables</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Table</span><span class="p">]</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Get plain spreadsheet address from defined names.</span>
+
+<span class="sd">    This is a middle-man function because openpyxl does not seem to deal with</span>
+<span class="sd">    defined names that point to table columns.</span>
+<span class="sd">    As per project conventions, tables are labelled `t.&lt;name&gt;`,</span>
+<span class="sd">    so this function deals with that case separately with a bunch of</span>
+<span class="sd">    hard-set conditions.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">defined_name</span><span class="o">.</span><span class="n">attr_text</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;t.&quot;</span><span class="p">):</span>
+        <span class="c1"># Has a table as per project convention: with header and total rows</span>
+        <span class="c1"># Get destination, shrinking range to data cells (without header and total rows).</span>
+        <span class="n">dest</span> <span class="o">=</span> <span class="n">defined_name</span><span class="o">.</span><span class="n">attr_text</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">table_destination</span><span class="p">(</span><span class="n">dest</span><span class="p">,</span> <span class="n">tables</span><span class="o">=</span><span class="n">tables</span><span class="p">,</span> <span class="n">top</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">bottom</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span>
+    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">defined_name</span><span class="o">.</span><span class="n">destinations</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="named_xlsx.utils.nanaverage" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">nanaverage</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+
+</h2>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Compute average ignoring <code>nan</code> values in <code>arr</code> and <code>weights</code>.</p>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">nanaverage</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]))</span>
+<span class="go">2.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">nanaverage</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]))</span>
+<span class="go">2.5</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">nanaverage</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">]))</span>
+<span class="go">2.0</span>
+</code></pre></div>
+
+
+            <details class="quote">
+              <summary>Source code in <code>named_xlsx/utils.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">304</span>
+<span class="normal">305</span>
+<span class="normal">306</span>
+<span class="normal">307</span>
+<span class="normal">308</span>
+<span class="normal">309</span>
+<span class="normal">310</span>
+<span class="normal">311</span>
+<span class="normal">312</span>
+<span class="normal">313</span>
+<span class="normal">314</span>
+<span class="normal">315</span>
+<span class="normal">316</span>
+<span class="normal">317</span>
+<span class="normal">318</span>
+<span class="normal">319</span>
+<span class="normal">320</span>
+<span class="normal">321</span>
+<span class="normal">322</span>
+<span class="normal">323</span>
+<span class="normal">324</span>
+<span class="normal">325</span>
+<span class="normal">326</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">nanaverage</span><span class="p">(</span><span class="n">arr</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">weights</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Compute average ignoring `nan` values in `arr` and `weights`.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; nanaverage(np.array([1, 2, 3]))</span>
+<span class="sd">    2.0</span>
+<span class="sd">    &gt;&gt;&gt; nanaverage(np.array([np.nan, 2, 3]))</span>
+<span class="sd">    2.5</span>
+<span class="sd">    &gt;&gt;&gt; nanaverage(np.array([np.nan, 2, 3]), np.array([1, 2, np.nan]))</span>
+<span class="sd">    2.0</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;Argument `</span><span class="si">{}</span><span class="s2">` must be a numpy array (got `</span><span class="si">{}</span><span class="s2">`).&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;arr&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">arr</span><span class="p">)))</span>
+    <span class="k">if</span> <span class="n">weights</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">weights</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;weights&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">weights</span><span class="p">)))</span>
+    <span class="k">if</span> <span class="n">weights</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">weights</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full_like</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">fill_value</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">indices</span> <span class="o">=</span> <span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span> <span class="o">&amp;</span> <span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">weights</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="n">indices</span><span class="p">],</span> <span class="n">weights</span><span class="o">=</span><span class="n">weights</span><span class="p">[</span><span class="n">indices</span><span class="p">])</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="named_xlsx.utils.table_destination" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">table_destination</span><span class="p">(</span><span class="n">ref</span><span class="p">,</span> <span class="o">/</span><span class="p">,</span> <span class="n">tables</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+
+</h2>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Return the address of a table.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>ref</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>tables</code>
+            </td>
+            <td>
+                  <code><span title="dict">dict</span>[<span title="str">str</span>, <a class="autorefs autorefs-internal" title="Table
+
+
+  
+      dataclass
+   (named_xlsx.utils.Table)" href="#named_xlsx.utils.Table">Table</a>]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>kwargs</code>
+            </td>
+            <td>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                
+              </div>
+            </td>
+            <td>
+                  <code>{}</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+            <details class="quote">
+              <summary>Source code in <code>named_xlsx/utils.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@cached</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">table_destination</span><span class="p">(</span>
+    <span class="n">ref</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">/</span><span class="p">,</span> <span class="n">tables</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Table</span><span class="p">],</span> <span class="o">**</span><span class="n">kwargs</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return the address of a table.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    ref</span>
+<span class="sd">    tables</span>
+<span class="sd">    kwargs</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{table_name}</span><span class="s2">[</span><span class="si">{table_colname}</span><span class="s2">]&quot;</span><span class="p">,</span> <span class="n">ref</span><span class="p">)</span>
+    <span class="n">table_name</span> <span class="o">=</span> <span class="n">r</span><span class="p">[</span><span class="s2">&quot;table_name&quot;</span><span class="p">]</span>
+    <span class="n">table_colname</span> <span class="o">=</span> <span class="n">r</span><span class="p">[</span><span class="s2">&quot;table_colname&quot;</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">tables</span><span class="p">[</span><span class="n">table_name</span><span class="p">]</span><span class="o">.</span><span class="n">mapper_columns</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)[</span><span class="n">table_colname</span><span class="p">]</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  </body>
+</html>
