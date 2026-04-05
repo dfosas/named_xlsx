@@ -6,7 +6,16 @@ from pathlib import Path
 from multiprocessing import Pool
 from tempfile import TemporaryDirectory
 
-import xlwings
+
+def _require_xlwings():
+    try:
+        import xlwings
+    except ImportError as exc:
+        raise RuntimeError(
+            "The refresh command requires the optional 'xlsx' dependencies. "
+            "Install them with `named_xlsx[xlsx]`."
+        ) from exc
+    return xlwings
 
 
 def refresh_path(path: Path) -> None:
@@ -17,6 +26,7 @@ def refresh_path(path: Path) -> None:
     path
 
     """
+    xlwings = _require_xlwings()
     modified_time_old = path.stat().st_mtime
     with xlwings.Book(path) as wb:
         wb.save()
@@ -26,6 +36,7 @@ def refresh_path(path: Path) -> None:
 
 
 def refresh_paths_in_tempdir(paths: list[Path], folder=None, parallel: bool = False):
+    xlwings = _require_xlwings()
     with xlwings.App() as _, TemporaryDirectory(dir=folder) as tempdir:
         paths_tmp = [Path(tempdir) / path.name for path in paths]
         for path, path_tmp in zip(paths, paths_tmp):
@@ -38,6 +49,7 @@ def refresh_paths_in_tempdir(paths: list[Path], folder=None, parallel: bool = Fa
 
 
 def refresh_paths(paths: list[Path], parallel: bool = False):
+    xlwings = _require_xlwings()
     with xlwings.App() as _:
         if parallel:
             with Pool() as p:
@@ -48,6 +60,7 @@ def refresh_paths(paths: list[Path], parallel: bool = False):
 
 
 def refresher():
+    xlwings = _require_xlwings()
     parser = argparse.ArgumentParser(description="Refresh cached values of xlsx.")
     parser.add_argument("--root", type=Path, default=Path(__file__).parent)
     parser.add_argument("--inplace", action="store_true")

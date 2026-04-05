@@ -2,7 +2,7 @@
 
 
 [![](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
-[![](https://shields.io/badge/MkDocs-documentation-informational.png)](https://dfosas.github.io/named_xlsx/)
+[![](https://img.shields.io/badge/docs-zensical-informational)](https://dfosas.github.io/named_xlsx/)
 
 ## What is it?
 
@@ -19,7 +19,7 @@ In particular:
     -   read and write;
     -   type conversion;
     -   individual cells, vectors, tables;
-    -   with different backends in Python (`openpxyl`, `xlwings`).
+    -   with different backends in Python (`openpyxl`, `xlwings`).
 -   Utility class to work with cell addresses and named tables (tables
     that know they are tables).
 -   Functions and command line tools to:
@@ -41,6 +41,39 @@ sometimes there is a need to work with a feature that only one library
 supports, etc. Thus, this package covers all utilities in one place and
 attempts to have a consistent, flexible interface that allows swapping
 underlying libraries whenever possible (`openpyxl`, `xlwings`).
+
+## Installation
+
+Base installation:
+
+```bash
+pip install named_xlsx
+```
+
+To enable spreadsheet refresh through Excel via `xlwings`, install the
+optional extra:
+
+```bash
+pip install "named_xlsx[xlsx]"
+```
+
+For local development with the locked toolchain in `uv.lock`:
+
+```bash
+uv sync --extra xlsx
+```
+
+To build the documentation locally:
+
+```bash
+uv run zensical build
+```
+
+To publish documentation to the `gh-pages` branch:
+
+```bash
+make docs-deploy
+```
 
 # User guide
 

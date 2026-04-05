@@ -84,6 +84,8 @@ celerybeat-schedule
 # virtualenv
 venv/
 ENV/
+.venv/
+.uv-cache/
 
 # Spyder project settings
 .spyderproject
@@ -103,6 +105,7 @@ ENV/
 .idea/tasks.xml
 .idea/dictionaries/
 /.idea/
+site/
 /.pytest_cache/v/cache/
 /temp/
 .DS_Store

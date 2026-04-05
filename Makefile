@@ -2,28 +2,44 @@
 
 SHELL := /bin/bash
 .DEFAULT_GOAL := help
-.PHONY: coverage help install lint test update
+.PHONY: build coverage docs-build docs-deploy docs-serve help install lint lock sync test
 
 dir_package="named_xlsx"
 dir_tests="tests"
 
 
-install:  ## Install in local system
-	INSTALL_ON_LINUX=1 flit install --symlink --extras all
+install: sync  ## Install project and default dev groups into .venv
 
-update:  ## Update documentation
-	quarto render README.qmd --to md
+sync:  ## Sync local environment from pyproject.toml and uv.lock
+	uv sync --extra xlsx
+
+lock:  ## Refresh uv.lock after dependency or metadata changes
+	uv lock
+
+build:  ## Build source and wheel distributions
+	uv build
+
+docs-serve:  ## Preview documentation locally
+	uv run zensical serve
+
+docs-build:  ## Build documentation site
+	uv run zensical build
+
+docs-deploy:  ## Build documentation and publish to gh-pages
+	uv run zensical build
+	touch site/.nojekyll
+	uv run ghp-import -n -p -f site
 
 lint:  ## Lint and static-check
-	black --check --diff --color $(dir_package) $(dir_tests)
-	python -m flake8 $(dir_package) $(dir_tests)
-	python -m mypy $(dir_package) $(dir_tests)
-	python -m pylint $(dir_package)
+	uv run black --check --diff --color $(dir_package) $(dir_tests)
+	uv run python -m flake8 $(dir_package) $(dir_tests)
+	uv run python -m mypy $(dir_package) $(dir_tests)
+	uv run python -m pylint $(dir_package)
 
 test:  ## Test
-	coverage erase
-	pytest
-	coverage report
+	uv run coverage erase
+	uv run pytest
+	uv run coverage report
 
 help: ## Show help message
 	@IFS=$$'\n' ; \

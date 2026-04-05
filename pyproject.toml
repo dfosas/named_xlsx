@@ -1,9 +1,10 @@
 [build-system]
-requires = ["flit_core >=3.2,<4"]
-build-backend = "flit_core.buildapi"
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
 
 [project]
 name = "named_xlsx"
+description = "Work with Excel named cells and tables from Python."
 authors = [
     {name = "Daniel Fosas", email = "d.fosas@ed.ac.uk"},
 ]
@@ -14,40 +15,63 @@ dependencies = [
     "openpyxl >3.1.3",
     "pandas >2.2",
     "parse",
-    "pyyaml",
-    "tabulate",
     "toml",
-    "tqdm",
-    "xlrd",
 ]
 requires-python = ">=3.12"
 readme = "README.md"
-classifiers = [ "License :: OSI Approved :: MIT License",]
-dynamic = ["version", "description"]
+license = {file = "LICENSE"}
+keywords = ["excel", "xlsx", "openpyxl", "named-ranges"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Office/Business :: Financial :: Spreadsheet",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+dynamic = ["version"]
 
 [project.urls]
-Home = "https://github.com/dfosas/named_xlsx"
+Homepage = "https://github.com/dfosas/named_xlsx"
+Documentation = "https://dfosas.github.io/named_xlsx/"
+Repository = "https://github.com/dfosas/named_xlsx"
 
 [project.optional-dependencies]
 xlsx = [
-    "xlwings >0.33",
+    "xlwings >=0.35.0",
 ]
-test = [
-    "black",
-    "flake8",
-    "flake8-bugbear",
-    "mypy",
-    "pylint",
-    "pytest >=8.0",
-    "pytest-cov",
-]
-doc = ["sphinx"]
 
 [project.scripts]
 named_xlsx-refresh = "named_xlsx.refresh:refresher"
 named_xlsx-save = "named_xlsx.cli:save_cli"
 named_xlsx-load = "named_xlsx.cli:load_cli"
 named_xlsx-spec = "named_xlsx.cli:specifications_cli"
+
+[dependency-groups]
+dev = [
+    { include-group = "lint" },
+    { include-group = "test" },
+    { include-group = "docs" },
+]
+lint = [
+    "black",
+    "flake8",
+    "flake8-bugbear",
+    "mypy",
+    "pylint",
+]
+test = [
+    "pytest >=8.0",
+    "pytest-cov",
+]
+docs = [
+    "mkdocstrings-python",
+    "zensical",
+]
+
+[tool.hatch.version]
+path = "named_xlsx/__init__.py"
 
 [tool.black]
 line-length = 88
@@ -73,3 +97,32 @@ source = [
 
 [tool.flake8]
 ignore = "E501"
+
+[tool.hatch.build.targets.wheel]
+packages = ["named_xlsx"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "/docs",
+    "/examples",
+    "/tests",
+    "/LICENSE",
+    "/Makefile",
+    "/README.md",
+    "/README.qmd",
+    "/zensical.toml",
+]
+exclude = [
+    "/.idea",
+    "/.mypy_cache",
+    "/.pytest_cache",
+    "/.uv-cache",
+    "/.venv",
+    "/dev",
+    "/site",
+    "/.coverage",
+    "/coverage.xml",
+    "/tests/.coverage",
+    "/tests/coverage.xml",
+    "/**/.DS_Store",
+]
