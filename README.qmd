@@ -102,33 +102,33 @@ Save configuration by listing named cells with their current values,
 optionally filtering names.
 
 ```{python}
-!named_xlsx-save "examples/sample-1_base.xlsx" --filter_prefix="i."
+!named_xlsx save "examples/sample-1_base.xlsx" --filter-prefix="i."
 ```
 
 You can choose a read backend explicitly:
 
 ```{python}
-!named_xlsx-save "examples/sample-1_base.xlsx" --engine="Calamine"
+!named_xlsx save "examples/sample-1_base.xlsx" --engine="Calamine"
 ```
 
 ### Load
 Load configuration onto target spreadsheet and save.
 
 ```{python}
-!named_xlsx-load "examples/update.toml" "examples/sample-1_base.xlsx" "examples/sample-2_modified.xlsx"
+!named_xlsx load "examples/update.toml" "examples/sample-1_base.xlsx" "examples/sample-2_modified.xlsx"
 ```
 
 For writes, choose a writable backend such as `OpenPYXL` or `XLWings`:
 
 ```{python}
-!named_xlsx-load "examples/update.toml" "examples/sample-1_base.xlsx" "examples/sample-2_modified.xlsx" --engine="OpenPYXL"
+!named_xlsx load "examples/update.toml" "examples/sample-1_base.xlsx" "examples/sample-2_modified.xlsx" --engine="OpenPYXL"
 ```
 
 ### Specifications
 Inspect named-cell locations and current values:
 
 ```{python}
-!named_xlsx-spec "examples/sample-1_base.xlsx" --filter_prefix="i."
+!named_xlsx spec "examples/sample-1_base.xlsx" --filter-prefix="i."
 ```
 
 ### Refresh
@@ -136,10 +136,10 @@ In supported platforms where Excel is available, open and save the file to refre
 (if the spreadsheet automatically computes values).
 
 ```{python}
-!named_xlsx-refresh --root "examples/"
+!named_xlsx refresh --root "examples/"
 ```
 
 Display new state:
 ```{python}
-!named_xlsx-save "examples/sample-2_modified.xlsx"
+!named_xlsx save "examples/sample-2_modified.xlsx"
 ```

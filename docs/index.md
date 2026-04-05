@@ -25,10 +25,10 @@ not treated specially by the resolver.
 
 ## Command-line tools
 
-- `named_xlsx-save`: export named-cell values to TOML
-- `named_xlsx-load`: apply TOML values to a copied workbook
-- `named_xlsx-spec`: list named-cell coordinates and values
-- `named_xlsx-refresh`: refresh cached formulas via Excel/`xlwings`
+- `named_xlsx save`: export named-cell values to TOML
+- `named_xlsx load`: apply TOML values to a copied workbook
+- `named_xlsx spec`: list named-cell coordinates and values
+- `named_xlsx refresh`: refresh cached formulas via Excel/`xlwings`
 
 The CLI functions accept an `engine` argument. Read-only commands can use
 `Calamine`; write commands require a writable backend such as `OpenPYXL`

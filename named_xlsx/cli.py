@@ -1,11 +1,12 @@
 # coding=utf-8
 """Commandline Interfaces."""
 
+from typing import Annotated
 from contextlib import closing
 from pathlib import Path
 import shutil
-import fire
 import toml
+import typer
 
 from named_xlsx.engines import (
     ENGINES,
@@ -14,6 +15,9 @@ from named_xlsx.engines import (
     MaybeStr,
     SPECIFICATION_COLUMNS,
 )
+from named_xlsx.refresh import refresh
+
+DEFAULT_REFRESH_ROOT = Path(__file__).parent
 
 
 def _resolve_engine(
@@ -36,6 +40,33 @@ def _resolve_engine(
     if require_writable and getattr(resolved, "read_only", False):
         raise ValueError(f"Engine {resolved.__name__!r} is read-only.")
     return resolved
+
+
+app = typer.Typer(
+    add_completion=False,
+    pretty_exceptions_enable=False,
+    help="Work with Excel named cells and tables from the command line.",
+)
+
+PathArgument = Annotated[Path, typer.Argument()]
+OptionalPathOption = Annotated[
+    Path | None, typer.Option("--p-out", "--p_out", help="Output file path.")
+]
+FilterPrefixOption = Annotated[
+    MaybeStr,
+    typer.Option(
+        "--filter-prefix",
+        "--filter_prefix",
+        help="Only include names with this prefix.",
+    ),
+]
+EngineOption = Annotated[
+    str | None,
+    typer.Option("--engine", help="Workbook engine name to use."),
+]
+RootOption = Annotated[
+    Path, typer.Option("--root", help="Folder containing xlsx files to refresh.")
+]
 
 
 def load(
@@ -112,13 +143,60 @@ def specifications(
         df.to_csv(p_out, index=False)
 
 
-def specifications_cli():
-    fire.Fire(specifications)
+@app.command("save")
+def save_command(
+    p_ini: PathArgument,
+    p_out: OptionalPathOption = None,
+    filter_prefix: FilterPrefixOption = None,
+    engine: EngineOption = None,
+) -> None:
+    try:
+        save(p_ini, p_out=p_out, filter_prefix=filter_prefix, engine=engine)
+    except ValueError as exc:
+        raise typer.BadParameter(str(exc)) from exc
 
 
-def load_cli():
-    fire.Fire(load)
+@app.command("spec")
+def specifications_command(
+    p_xlsx: PathArgument,
+    p_out: OptionalPathOption = None,
+    filter_prefix: FilterPrefixOption = None,
+    engine: EngineOption = None,
+) -> None:
+    try:
+        specifications(p_xlsx, p_out=p_out, filter_prefix=filter_prefix, engine=engine)
+    except ValueError as exc:
+        raise typer.BadParameter(str(exc)) from exc
 
 
-def save_cli():
-    fire.Fire(save)
+@app.command("load")
+def load_command(
+    p_toml: PathArgument,
+    p_xlsx: PathArgument,
+    p_out: PathArgument,
+    engine: EngineOption = None,
+) -> None:
+    try:
+        load(p_toml, p_xlsx, p_out, engine=engine)
+    except ValueError as exc:
+        raise typer.BadParameter(str(exc)) from exc
+
+
+@app.command("refresh")
+def refresh_command(
+    root: RootOption = DEFAULT_REFRESH_ROOT,
+    inplace: Annotated[
+        bool, typer.Option("--inplace", help="Refresh workbooks in place.")
+    ] = False,
+    parallel: Annotated[
+        bool, typer.Option("--parallel", help="Refresh files in parallel.")
+    ] = False,
+) -> None:
+    try:
+        refresh(root=root, inplace=inplace, parallel=parallel)
+    except RuntimeError as exc:
+        raise typer.BadParameter(str(exc)) from exc
+
+
+def main() -> None:
+    app()

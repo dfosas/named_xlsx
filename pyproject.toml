@@ -9,13 +9,13 @@ authors = [
     {name = "Daniel Fosas", email = "d.fosas@ed.ac.uk"},
 ]
 dependencies = [
-    "fire",
     "memoization",
     "numpy",
     "openpyxl >3.1.3",
     "pandas >2.2",
     "parse",
     "toml",
+    "typer >=0.19",
 ]
 requires-python = ">=3.12"
 readme = "README.md"
@@ -46,10 +46,7 @@ calamine = [
 ]
 
 [project.scripts]
-named_xlsx-refresh = "named_xlsx.refresh:refresher"
-named_xlsx-save = "named_xlsx.cli:save_cli"
-named_xlsx-load = "named_xlsx.cli:load_cli"
-named_xlsx-spec = "named_xlsx.cli:specifications_cli"
+named_xlsx = "named_xlsx.cli:main"
 
 [dependency-groups]
 dev = [

@@ -1,11 +1,12 @@
 # coding=utf-8
 """Routines to refresh calculated values."""
 
-import argparse
 import shutil
 from pathlib import Path
 from multiprocessing import Pool
 from tempfile import TemporaryDirectory
+
+DEFAULT_REFRESH_ROOT = Path(__file__).parent
 
 
 def _require_xlwings():
@@ -60,19 +61,24 @@ def refresh_paths(paths: list[Path], parallel: bool = False):
                 refresh_path(path)
 
 
-def refresher():
+def refresh(
+    root: Path = DEFAULT_REFRESH_ROOT,
+    *,
+    inplace: bool = False,
+    parallel: bool = False,
+) -> None:
+    """Refresh cached values for all xlsx files in a folder."""
     xlwings = _require_xlwings()
-    parser = argparse.ArgumentParser(description="Refresh cached values of xlsx.")
-    parser.add_argument("--root", type=Path, default=Path(__file__).parent)
-    parser.add_argument("--inplace", action="store_true")
-    parser.add_argument("--parallel", action="store_true")
-    args = parser.parse_args()
-
-    _paths = list(sorted(args.root.glob("*.xlsx")))
+    paths = list(sorted(root.glob("*.xlsx")))
     with xlwings.App() as _:
-        if args.inplace:
+        if inplace:
             # For cases where it is fine to use the original paths (avoids copies)
-            refresh_paths(_paths, parallel=args.parallel)
+            refresh_paths(paths, parallel=parallel)
         else:
             # Using a local temporal folder helps with network path issues in Excel
-            refresh_paths_in_tempdir(_paths, parallel=args.parallel)
+            refresh_paths_in_tempdir(paths, parallel=parallel)
+
+
+def refresher():
+    """Backward-compatible Python entry point for refresh."""
+    refresh()
