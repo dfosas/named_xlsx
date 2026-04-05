@@ -185,6 +185,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="" class="md-nav__link md-nav__link--active">
         
   
@@ -201,6 +219,59 @@
   
 
       </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#backends" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Backends
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#table-convention" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Table convention
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-line-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command-line tools
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -336,6 +407,47 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#backends" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Backends
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#table-convention" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Table convention
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-line-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command-line tools
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -350,8 +462,61 @@
                   
 
 <h1 id="welcome-named_xlsx">Welcome <code>named_xlsx</code><a class="headerlink" href="#welcome-named_xlsx" title="Permanent link">&para;</a></h1>
-<p>Documentation under construction.
-See navigation panel for thematic documentation.</p>
+<p><code>named_xlsx</code> provides a small set of workbook-oriented tools for working
+with Excel named cells, vectors, and table-backed references.</p>
+<h2 id="backends">Backends<a class="headerlink" href="#backends" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Engine</th>
+<th>Read</th>
+<th>Write</th>
+<th>Save</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>OpenPYXL</code></td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Default backend.</td>
+</tr>
+<tr>
+<td><code>XLWings</code></td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Requires Excel and the <code>xlsx</code> extra.</td>
+</tr>
+<tr>
+<td><code>Calamine</code></td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+<td>Read-only backend, install via the <code>calamine</code> extra.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="table-convention">Table convention<a class="headerlink" href="#table-convention" title="Permanent link">&para;</a></h2>
+<p>Table-backed names are expected to be workbook defined names whose
+reference text is a structured table reference such as <code>tbl_demo[value]</code>.
+For example, a defined name <code>series</code> can point to <code>tbl_demo[value]</code>.</p>
+<p>When resolved by <code>named_xlsx</code>, the package returns the table data rows
+only, excluding the header and total rows.</p>
+<p>The <code>t.</code> prefix is still supported for backward compatibility, but it is
+not treated specially by the resolver.</p>
+<h2 id="command-line-tools">Command-line tools<a class="headerlink" href="#command-line-tools" title="Permanent link">&para;</a></h2>
+<ul>
+<li><code>named_xlsx-save</code>: export named-cell values to TOML</li>
+<li><code>named_xlsx-load</code>: apply TOML values to a copied workbook</li>
+<li><code>named_xlsx-spec</code>: list named-cell coordinates and values</li>
+<li><code>named_xlsx-refresh</code>: refresh cached formulas via Excel/<code>xlwings</code></li>
+</ul>
+<p>The CLI functions accept an <code>engine</code> argument. Read-only commands can use
+<code>Calamine</code>; write commands require a writable backend such as <code>OpenPYXL</code>
+or <code>XLWings</code>.</p>
 
 
 
