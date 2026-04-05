@@ -1,3 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+      <url>
+        <loc>https://dfosas.github.io/named_xlsx/</loc>
+      </url>
+      <url>
+        <loc>https://dfosas.github.io/named_xlsx/z-api-cli/</loc>
+      </url>
+      <url>
+        <loc>https://dfosas.github.io/named_xlsx/z-api-engines/</loc>
+      </url>
+      <url>
+        <loc>https://dfosas.github.io/named_xlsx/z-api-refresh/</loc>
+      </url>
+      <url>
+        <loc>https://dfosas.github.io/named_xlsx/z-api-utils/</loc>
+      </url>
 </urlset>
