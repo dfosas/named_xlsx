@@ -1,4 +1,5 @@
 from pathlib import Path
+import re
 
 import openpyxl as xl
 import pytest
@@ -6,6 +7,12 @@ from openpyxl.workbook.defined_name import DefinedName
 from typer.testing import CliRunner
 
 from named_xlsx.cli import app
+
+ANSI_ESCAPE_RE = re.compile(r"\x1b\[[0-9;]*m")
+
+
+def _plain(text: str) -> str:
+    return ANSI_ESCAPE_RE.sub("", text)
 
 
 @pytest.fixture()
@@ -58,7 +65,7 @@ def test_spec_subcommand_help_mentions_hyphenated_option():
     runner = CliRunner()
     result = runner.invoke(app, ["spec", "--help"])
     assert result.exit_code == 0
-    assert "--filter-prefix" in result.stdout
+    assert "--filter-prefix" in _plain(result.stdout)
 
 
 def test_load_subcommand_rejects_read_only_engine(workbook_path: Path, tmp_path: Path):
