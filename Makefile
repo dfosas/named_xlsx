@@ -31,7 +31,7 @@ docs-deploy:  ## Build documentation and publish to gh-pages
 	uv run ghp-import -n -p -f site
 
 lint:  ## Lint and static-check
-	uv run black --check --diff --color $(dir_package) $(dir_tests)
+	uv run black --check --diff --color --workers 1 $(dir_package) $(dir_tests)
 	uv run python -m flake8 $(dir_package) $(dir_tests)
 	uv run python -m mypy $(dir_package) $(dir_tests)
 	uv run python -m pylint $(dir_package)

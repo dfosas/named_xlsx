@@ -19,7 +19,8 @@ In particular:
     -   read and write;
     -   type conversion;
     -   individual cells, vectors, tables;
-    -   with different backends in Python (`openpyxl`, `xlwings`).
+    -   with different backends in Python (`openpyxl`, `xlwings`,
+        `calamine`).
 -   Utility class to work with cell addresses and named tables (tables
     that know they are tables).
 -   Functions and command line tools to:
@@ -40,7 +41,8 @@ supported in any platform, some require having Excel installed,
 sometimes there is a need to work with a feature that only one library
 supports, etc. Thus, this package covers all utilities in one place and
 attempts to have a consistent, flexible interface that allows swapping
-underlying libraries whenever possible (`openpyxl`, `xlwings`).
+underlying libraries whenever possible (`openpyxl`, `xlwings`,
+`calamine`).
 
 ## Installation
 
@@ -55,6 +57,12 @@ optional extra:
 
 ```bash
 pip install "named_xlsx[xlsx]"
+```
+
+To enable the read-only Calamine backend:
+
+```bash
+pip install "named_xlsx[calamine]"
 ```
 
 For local development with the locked toolchain in `uv.lock`:
@@ -77,6 +85,29 @@ make docs-deploy
 
 # User guide
 
+## Backend matrix
+
+| Engine | Read named cells | Write named cells | Save workbook | Notes |
+| --- | --- | --- | --- | --- |
+| `OpenPYXL` | Yes | Yes | Yes | Default backend. |
+| `XLWings` | Yes | Yes | Yes | Requires Excel and `named_xlsx[xlsx]`. |
+| `Calamine` | Yes | No | No | Read-only backend, install via `named_xlsx[calamine]`. |
+
+## Table conventions
+
+Named table-column references are supported through workbook defined
+names that point to a structured table reference. For example:
+
+- workbook defined name: `series`
+- reference text: `tbl_demo[value]`
+
+When resolved through `named_xlsx`, the data rows are used and the table
+header and total rows are excluded. In the example above, a table column
+covering `B1:B5` would resolve to `B2:B4`.
+
+Names starting with `t.` are still supported, but the prefix is not
+special to the resolver.
+
 ## Command Line Interfaces
 
 Quick tour of options available, best read in order top to bottom to see
@@ -89,6 +120,12 @@ optionally filtering names.
 
 ``` python
 !named_xlsx-save "examples/sample-1_base.xlsx" --filter_prefix="i."
+```
+
+You can choose a read backend explicitly:
+
+``` python
+!named_xlsx-save "examples/sample-1_base.xlsx" --engine="Calamine"
 ```
 
     [sheet_1]
@@ -105,6 +142,20 @@ Load configuration onto target spreadsheet and save.
 
 ``` python
 !named_xlsx-load "examples/update.toml" "examples/sample-1_base.xlsx" "examples/sample-2_modified.xlsx"
+```
+
+For writes, choose a writable backend such as `OpenPYXL` or `XLWings`:
+
+``` python
+!named_xlsx-load "examples/update.toml" "examples/sample-1_base.xlsx" "examples/sample-2_modified.xlsx" --engine="OpenPYXL"
+```
+
+### Specifications
+
+Inspect named-cell locations and current values:
+
+``` python
+!named_xlsx-spec "examples/sample-1_base.xlsx" --filter_prefix="i."
 ```
 
 ### Refresh

@@ -1,5 +1,6 @@
 # coding=utf-8
 """Utilities."""
+
 from dataclasses import dataclass, field
 from itertools import product
 from pathlib import Path
@@ -93,16 +94,15 @@ def get_destinations(
     Get plain spreadsheet address from defined names.
 
     This is a middle-man function because openpyxl does not seem to deal with
-    defined names that point to table columns.
-    As per project conventions, tables are labelled `t.<name>`,
-    so this function deals with that case separately with a bunch of
-    hard-set conditions.
+    defined names that point to structured table references, so this function
+    resolves those references separately and maps them to data-cell ranges.
 
     """
-    if defined_name.attr_text.startswith("t."):
-        # Has a table as per project convention: with header and total rows
-        # Get destination, shrinking range to data cells (without header and total rows).
-        dest = defined_name.attr_text
+    dest = defined_name.attr_text
+    parsed = parse("{table_name}[{table_colname}]", dest)
+    if parsed is not None and parsed["table_name"] in tables:
+        # Structured table reference: shrink to data cells only,
+        # excluding header and total rows.
         return [table_destination(dest, tables=tables, top=1, bottom=1)]
     return list(defined_name.destinations)
 

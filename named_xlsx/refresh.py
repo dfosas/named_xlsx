@@ -1,5 +1,6 @@
 # coding=utf-8
 """Routines to refresh calculated values."""
+
 import argparse
 import shutil
 from pathlib import Path

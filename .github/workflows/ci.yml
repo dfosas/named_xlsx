@@ -1,0 +1,54 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - "site/**"
+      - "docs/**"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version-file: pyproject.toml
+
+      - name: Sync environment
+        run: uv sync --group lint --group test --group docs --extra calamine
+
+      - name: Format check
+        run: uv run black --check --diff --color --workers 1 named_xlsx tests
+
+      - name: Lint
+        run: uv run python -m flake8 named_xlsx tests
+
+      - name: Type check
+        run: uv run python -m mypy named_xlsx tests
+
+      - name: Test
+        run: uv run pytest -q
+
+      - name: Build distributions
+        run: uv build
+
+      - name: Build docs
+        run: uv run zensical build

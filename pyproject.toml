@@ -41,6 +41,9 @@ Repository = "https://github.com/dfosas/named_xlsx"
 xlsx = [
     "xlwings >=0.35.0",
 ]
+calamine = [
+    "python-calamine >=0.6.2",
+]
 
 [project.scripts]
 named_xlsx-refresh = "named_xlsx.refresh:refresher"
@@ -60,6 +63,7 @@ lint = [
     "flake8-bugbear",
     "mypy",
     "pylint",
+    "types-toml",
 ]
 test = [
     "pytest >=8.0",
