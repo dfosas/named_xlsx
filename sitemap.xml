@@ -4,15 +4,18 @@
         <loc>https://dfosas.github.io/named_xlsx/</loc>
       </url>
       <url>
-        <loc>https://dfosas.github.io/named_xlsx/z-api-cli/</loc>
+        <loc>https://dfosas.github.io/named_xlsx/api/</loc>
       </url>
       <url>
-        <loc>https://dfosas.github.io/named_xlsx/z-api-engines/</loc>
+        <loc>https://dfosas.github.io/named_xlsx/api/cli/</loc>
       </url>
       <url>
-        <loc>https://dfosas.github.io/named_xlsx/z-api-refresh/</loc>
+        <loc>https://dfosas.github.io/named_xlsx/api/engines/</loc>
       </url>
       <url>
-        <loc>https://dfosas.github.io/named_xlsx/z-api-utils/</loc>
+        <loc>https://dfosas.github.io/named_xlsx/api/refresh/</loc>
+      </url>
+      <url>
+        <loc>https://dfosas.github.io/named_xlsx/api/utils/</loc>
       </url>
 </urlset>
