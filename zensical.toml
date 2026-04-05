@@ -5,10 +5,13 @@ docs_dir = "docs"
 site_dir = "site"
 nav = [
     { Overview = "index.md" },
-    { "Commandline Interfaces" = "z-api-cli.md" },
-    { Engines = "z-api-engines.md" },
-    { Refresh = "z-api-refresh.md" },
-    { Utilities = "z-api-utils.md" },
+    { API = [
+        { Overview = "api/index.md" },
+        { "Commandline Interfaces" = "api/cli.md" },
+        { Engines = "api/engines.md" },
+        { Refresh = "api/refresh.md" },
+        { Utilities = "api/utils.md" },
+    ] },
 ]
 
 [project.theme]
